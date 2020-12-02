@@ -87,6 +87,19 @@ public class SortArray {
         }
     }
 
+    public void selectionSortRecursive(int i){
+        if(i == size - 1)
+            return;
+        int min_index = i;
+        for(int j = i + 1; j < size; j ++)
+            if(arr[j] < arr[min_index]){
+                min_index = j;
+            }
+        swap(i, min_index);
+        selectionSortRecursive(i + 1);
+    }
+
+
     public void selectionSort2(){
         int max_index = -1;
         for(int i = size - 1; i >= 1; i --) {
@@ -117,8 +130,9 @@ public class SortArray {
 //        sa.twoForLoops();
 //        sa.bubbleSort2();
 //        sa.selectionSort2();
-        sa.bubbleSortRecursive(3);
+//        sa.bubbleSortRecursive(3);
 //        sa.bubbleSortRecursive2(0);
+        sa.selectionSortRecursive(0);
         System.out.println(Arrays.toString(sa.arr));
 
 //        System.out.println(sa.fibonacciIterative(7));

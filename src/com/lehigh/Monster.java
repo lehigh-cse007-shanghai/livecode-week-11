@@ -1,6 +1,6 @@
 package com.lehigh;
 
-public class Monster {
+public class Monster implements Comparable<Monster> {
     public String name;
     public int strength; // 力量
     public int agility; // 敏捷
@@ -8,6 +8,14 @@ public class Monster {
 
     public String toString(){
         return "(" + this.name + " " + this.strength + " " + this.agility + " " + this.intelligence + ")";
+    }
+
+    @Override
+    public int compareTo(Monster other) {
+        if(this.intelligence > other.intelligence)
+            return 1;
+        else
+            return -1;
     }
 }
 
